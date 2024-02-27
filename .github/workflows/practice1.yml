@@ -8,8 +8,8 @@ on:
 
 env:
   PROJECT_ID: proud-outpost-396306
-  REGION: northamerica-northeast1
-  GAR_LOCATION: northamerica-northeast1-docker.pkg.dev/proud-outpost-396306/repo-1/
+  REGION: us-east1
+  GAR_LOCATION: us-east1-docker.pkg.dev/proud-outpost-396306/repo-1/
 
 jobs:
   build-push-artifact:
