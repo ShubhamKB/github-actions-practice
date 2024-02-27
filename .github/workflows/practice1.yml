@@ -9,7 +9,7 @@ on:
 env:
   PROJECT_ID: proud-outpost-396306
   REGION: us-east1
-  GAR_LOCATION: us-east1-docker.pkg.dev/proud-outpost-396306/repo-1/
+  GAR_LOCATION: us-east1-docker.pkg.dev/proud-outpost-396306/repo-1
 
 jobs:
   build-push-artifact:
@@ -34,7 +34,7 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}:latest
+        run: docker build . --tag ${{ env.GAR_LOCATION }}/nginx:latest
 
       - name: Push image
         run: docker push ${{ env.GAR_LOCATION }}
