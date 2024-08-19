@@ -42,5 +42,5 @@ jobs:
 
       # - name: Auth before push
       #   run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev
-      - name: Push image
-        run: docker push ${{ env.GAR_LOCATION }}/nginx:latest
+      - name: Pull image
+        run: docker pull ${{ env.GAR_LOCATION }}/nginx:latest
