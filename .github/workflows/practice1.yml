@@ -22,9 +22,9 @@ jobs:
       - id: "auth"
         uses: "google-github-actions/auth@v1"
         with:
-            # credentials_json: "${{ secrets.GCP_SA_KEY }}"
-            workload_identity_provider: 'projects/684049558896/locations/global/workloadIdentityPools/github-actions/providers/github'
-            service_account: 'wif-github@prime-odyssey-428918-m1.iam.gserviceaccount.com'
+            credentials_json: "${{ secrets.GCP_SA_KEY }}"
+            # workload_identity_provider: 'projects/684049558896/locations/global/workloadIdentityPools/github-actions/providers/github'
+            # service_account: 'wif-github@prime-odyssey-428918-m1.iam.gserviceaccount.com'
             
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
