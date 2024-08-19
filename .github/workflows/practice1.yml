@@ -50,5 +50,5 @@ jobs:
         with:
           service: 'my-first-cloud-run-service'
           image: '${{ env.GAR_LOCATION }}/nginx:latest'
-          region: '${{ env.REGION }}'
+          region: 'us-central1'
           flags: '--port 80'
