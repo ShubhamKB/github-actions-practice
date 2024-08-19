@@ -10,10 +10,10 @@ env:
 
 jobs:
   build-push-artifact:
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-      actions: 'write'
+    # permissions:
+    #   contents: 'read'
+    #   id-token: 'write'
+    #   actions: 'write'
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
