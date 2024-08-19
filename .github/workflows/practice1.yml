@@ -10,10 +10,10 @@ env:
 
 jobs:
   build-push-artifact:
-    # permissions:
-    #   contents: 'read'
-    #   id-token: 'write'
-    #   actions: 'write'
+    permissions:
+      id-token: write  # Required for Workload Identity Federation
+      contents: read   # Default is read-only for the repository content
+      # actions: 'write'
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
