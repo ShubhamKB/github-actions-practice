@@ -45,11 +45,10 @@ jobs:
         run: docker push ${{ env.GAR_LOCATION }}/nginx:latest
 
       - name: Deploy to Cloud Run
-        run: |
-          IMAGE_NAME=${{ env.GAR_LOCATION }}/nginx:latest
-          gcloud run deploy my-first-cloud-run-service \
-            --image $IMAGE_NAME \
-            --region ${{ env.REGION }} \
-            --platform managed \
-            --allow-unauthenticated \
-            --port=80
+        id: 'deploy'
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          service: 'my-first-cloud-run-service'
+          image: '${{ env.GAR_LOCATION }}/nginx:latest'
+          region: '${{ env.REGION }}'
+          flags: '--port 80'
