@@ -22,9 +22,9 @@ jobs:
       - id: "auth"
         uses: "google-github-actions/auth@v1"
         with:
-            #credentials_json: "${{ secrets.GCP_SA_KEY }}"
-            workload_identity_provider: 'projects/684049558896/locations/global/workloadIdentityPools/github-actions-cloud-run/providers/github-actions-cloud-run'
-            service_account: 'wif-github@prime-odyssey-428918-m1.iam.gserviceaccount.com'
+            credentials_json: "${{ secrets.GCP_SA_KEY }}"
+            # workload_identity_provider: 'projects/684049558896/locations/global/workloadIdentityPools/github-actions-cloud-run/providers/github-actions-cloud-run'
+            # service_account: 'wif-github@prime-odyssey-428918-m1.iam.gserviceaccount.com'
             
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
@@ -39,7 +39,7 @@ jobs:
       - name: Build image
         run: docker build . --tag ${{ env.GAR_LOCATION }}/nginx:latest
 
-      - name: Auth before push
-        run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev
+      # - name: Auth before push
+      #   run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev
       - name: Push image
         run: docker push ${{ env.GAR_LOCATION }}/nginx:latest
