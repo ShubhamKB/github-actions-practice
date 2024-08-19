@@ -1,8 +1,7 @@
 name: Build and Push to Artifact Registry
 
 on:
-  push:
-    branches: ["main"]
+  workflow_dispatch:
 
 env:
   PROJECT_ID: prime-odyssey-428918-m1
