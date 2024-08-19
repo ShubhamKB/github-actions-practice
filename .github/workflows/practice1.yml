@@ -43,3 +43,12 @@ jobs:
       #   run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev
       - name: Push image
         run: docker push ${{ env.GAR_LOCATION }}/nginx:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          IMAGE_NAME = ${{ env.GAR_LOCATION }}/nginx:latest
+          gcloud run deploy my-first-cloud-run-service \
+            --image $IMAGE_NAME \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated
